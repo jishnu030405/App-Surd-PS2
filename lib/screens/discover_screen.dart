@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../models/place.dart';
 import '../models/filter_criteria.dart';
 import '../services/place_repository.dart';
@@ -171,7 +172,9 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
         IconButton(
           tooltip: _isMapView ? 'Switch to list view' : 'Switch to map view',
           icon: Icon(
-            _isMapView ? Icons.format_list_bulleted_rounded : Icons.map_outlined,
+            _isMapView
+                ? Icons.format_list_bulleted_rounded
+                : Icons.map_outlined,
             color: AppTheme.primaryTeal,
           ),
           onPressed: () {
@@ -193,7 +196,8 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
           // Search Input Field
           Expanded(
             child: Semantics(
-              label: 'Search public places, hospitals, colleges, malls, transit',
+              label:
+                  'Search public places, hospitals, colleges, malls, transit',
               child: TextField(
                 controller: _searchController,
                 onChanged: (val) {
@@ -203,8 +207,14 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                 },
                 decoration: InputDecoration(
                   hintText: 'Search hospitals, colleges, malls...',
-                  hintStyle: const TextStyle(fontSize: 14, color: AppTheme.textMuted),
-                  prefixIcon: const Icon(Icons.search_rounded, color: AppTheme.textMuted),
+                  hintStyle: const TextStyle(
+                    fontSize: 14,
+                    color: AppTheme.textMuted,
+                  ),
+                  prefixIcon: const Icon(
+                    Icons.search_rounded,
+                    color: AppTheme.textMuted,
+                  ),
                   suffixIcon: _searchController.text.isNotEmpty
                       ? IconButton(
                           icon: const Icon(Icons.clear_rounded, size: 18),
@@ -218,7 +228,10 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                       : null,
                   filled: true,
                   fillColor: Colors.white,
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
+                  ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(14),
                     borderSide: const BorderSide(color: AppTheme.borderLight),
@@ -230,7 +243,8 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
           const SizedBox(width: 10),
           // Prominent Accessibility Filter Button with badge
           Semantics(
-            label: 'Open accessibility needs filter panel. ${_criteria.activeFiltersCount} filters currently active.',
+            label:
+                'Open accessibility needs filter panel. ${_criteria.activeFiltersCount} filters currently active.',
             button: true,
             child: Stack(
               children: [
@@ -274,7 +288,10 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                         color: AppTheme.statusAmber,
                         shape: BoxShape.circle,
                       ),
-                      constraints: const BoxConstraints(minWidth: 16, minHeight: 16),
+                      constraints: const BoxConstraints(
+                        minWidth: 16,
+                        minHeight: 16,
+                      ),
                       child: Center(
                         child: Text(
                           '${_criteria.activeFiltersCount}',
@@ -317,7 +334,9 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
               width: 1.2,
             ),
             labelStyle: TextStyle(
-              color: isSelected ? AppTheme.primaryTealDark : AppTheme.textDarkNavy,
+              color: isSelected
+                  ? AppTheme.primaryTealDark
+                  : AppTheme.textDarkNavy,
               fontSize: 13,
               fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
             ),
@@ -426,7 +445,11 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
               const Text(
                 'Try adjusting your search query or loosening accessibility facility requirements.',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 13, color: AppTheme.textMuted, height: 1.4),
+                style: TextStyle(
+                  fontSize: 13,
+                  color: AppTheme.textMuted,
+                  height: 1.4,
+                ),
               ),
               const SizedBox(height: 16),
               ElevatedButton.icon(

@@ -33,7 +33,7 @@ class AiSummaryCard extends StatelessWidget {
               const SizedBox(height: 12),
               const Text(
                 'No community summary generated yet. Add your feedback below to generate the first accessibility summary.',
-                style: TextStyle(fontSize: 13, color: AppTheme.textMuted),
+                style: TextStyle(fontSize: 13, color: Color.fromARGB(255, 249, 255, 186)),
               ),
             ],
           ),

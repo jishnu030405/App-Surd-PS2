@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../models/place.dart';
 import '../theme/app_theme.dart';
 import 'accessibility_badge.dart';
@@ -38,7 +39,8 @@ class PlaceCard extends StatelessWidget {
     final scoreResult = place.scoreResult;
 
     return Semantics(
-      label: '${place.name}, ${place.category}, in ${place.locality}. '
+      label:
+          '${place.name}, ${place.category}, in ${place.locality}. '
           'Score: ${scoreResult.hasSufficientData ? "${scoreResult.roundedScore} out of 100" : "Unverified"}. '
           'Step-free: ${place.stepFreeEntry.displayName}. '
           'Lift: ${place.workingLift.displayName}. '
@@ -66,7 +68,10 @@ class PlaceCard extends StatelessWidget {
                   children: [
                     // Category Chip
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 5,
+                      ),
                       decoration: BoxDecoration(
                         color: AppTheme.secondaryBlueLight,
                         borderRadius: BorderRadius.circular(8),
@@ -94,7 +99,10 @@ class PlaceCard extends StatelessWidget {
                     if (place.distanceKm != null) ...[
                       const SizedBox(width: 8),
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 5,
+                        ),
                         decoration: BoxDecoration(
                           color: AppTheme.surfaceSubtle,
                           borderRadius: BorderRadius.circular(8),
@@ -131,13 +139,20 @@ class PlaceCard extends StatelessWidget {
                     // Bookmark toggle
                     IconButton(
                       icon: Icon(
-                        place.isSaved ? Icons.bookmark_rounded : Icons.bookmark_outline_rounded,
-                        color: place.isSaved ? AppTheme.primaryTeal : AppTheme.textMuted,
+                        place.isSaved
+                            ? Icons.bookmark_rounded
+                            : Icons.bookmark_outline_rounded,
+                        color: place.isSaved
+                            ? AppTheme.primaryTeal
+                            : AppTheme.textMuted,
                         size: 22,
                       ),
                       tooltip: place.isSaved ? 'Remove bookmark' : 'Save place',
                       onPressed: onToggleBookmark,
-                      constraints: const BoxConstraints(minWidth: 36, minHeight: 36),
+                      constraints: const BoxConstraints(
+                        minWidth: 36,
+                        minHeight: 36,
+                      ),
                       padding: EdgeInsets.zero,
                     ),
                   ],
@@ -217,11 +232,14 @@ class PlaceCard extends StatelessWidget {
                 Row(
                   children: [
                     Icon(
-                      place.verificationStatus == VerificationType.independentlyVerified
+                      place.verificationStatus ==
+                              VerificationType.independentlyVerified
                           ? Icons.verified_rounded
                           : Icons.people_outline_rounded,
                       size: 15,
-                      color: place.verificationStatus == VerificationType.independentlyVerified
+                      color:
+                          place.verificationStatus ==
+                              VerificationType.independentlyVerified
                           ? AppTheme.statusGreen
                           : AppTheme.textMuted,
                     ),
@@ -250,7 +268,9 @@ class PlaceCard extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.w500,
-                          color: place.verificationStatus == VerificationType.independentlyVerified
+                          color:
+                              place.verificationStatus ==
+                                  VerificationType.independentlyVerified
                               ? AppTheme.statusGreen
                               : AppTheme.textMuted,
                         ),
